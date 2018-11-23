@@ -1,0 +1,26 @@
+<h1>Registrated users</h1>
+<div class="clear" ></div>
+<table class="table" >
+  <thead>
+  <tr>
+    <th scope="col">Id number</th>
+    <th scope="col">First name</th>
+    <th scope="col">Second name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Country</th>
+    <th scope="col">Telephone</th>
+    <th scope="col">Address</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of users">
+    <th>{{item.id}}</th>
+    <td>{{item.firstName}}</td>
+    <td>{{item.secondName}}</td>
+    <td>{{item.firstSurname}}</td>
+    <td>{{item.secondSurname}}</td>
+    <td>{{item.phone}}</td>
+    <td>{{item.adress}}</td>
+  </tr>
+  </tbody>
+</table>
