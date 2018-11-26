@@ -20,9 +20,14 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "angular2-jwt": "^0.2.3",
+    "angular5-social-login": "^1.0.9",
+    "angularx-social-login": "^1.2.5",
     "core-js": "^2.5.4",
+    "css": "^2.2.4",
     "node-sass": "^4.10.0",
     "rxjs": "~6.3.3",
+    "scss": "^0.2.4",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

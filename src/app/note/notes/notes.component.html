@@ -1,0 +1,17 @@
+<div class="row">
+<div class="clear" *ngFor="let item of notes">
+<div class="border-10 col"><div class ="card text-white bg-dark mb-3 border-10" style="width: 40rem;">
+  <div class="card-body" >
+    <h5 class="card-title">{{item.tag}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{item.id}}</h6>
+    <p class="card-text">{{item.content}}</p>
+    <a routerLink='/addnote' (click)="editNote(item)" class="card-link">Change</a>
+    <a href='/note' class="card-link" (click)="deleteNotes(item)">Delete</a>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+

@@ -1,5 +1,5 @@
 .clear{
-  margin: 15px;
+  margin: 5px;
 }
 .required{
   color: red;
@@ -7,10 +7,10 @@
 }
 .main-form{
   margin: 0 auto ;
-  width: 80%;
+  width: 95%;
 }
 .btn-save{
   cursor: pointer;
   font-weight: bolder;
-  margin-left: 43%;
+  margin-left: 38%;
 }

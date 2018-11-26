@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {UserModel} from '../model/user.model';
 import {CreateUserService} from './create-user.service';
 import {OK} from '../model/httpstatus';
-import {unwrapResolvedMetadata} from '@angular/compiler';
 import {Router} from '@angular/router';
 
 @Component({
@@ -30,7 +29,7 @@ export class CreateUserComponent implements OnInit {
      if (this.isValid) {
        this.createUserService.saveOrUpdate(this.user).subscribe( res => {
           if (res.responseCode == OK) {
-            this.router.navigate(['/userComponent']);
+            this.router.navigate(['/note']);
           } else {
             this.message = res.message;
             this.isValid = false;

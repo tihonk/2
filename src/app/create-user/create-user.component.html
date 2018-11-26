@@ -1,7 +1,7 @@
 <div class = "clear"></div>
-<h2 class="main-form">Create new user</h2>
-<form class="form-horizontal main-form">
-  <div *ngIf="!isValid" class="alert alert-danger">
+<h2 class="main-form"><img src="../../assets/2.png">Create new user</h2>
+<form class="form-horizontal main-form ">
+  <div *ngIf="!isValid" class="alert alert-danger ">
     <strong>Error!</strong> {{message}}
   </div>  <div class="form-group">
     <label class="control-label col-sm-2" for="firstName"><span class="required">*</span>First name:</label>
@@ -41,7 +41,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" (click)="saveOrUpdate()" class="btn btn-save">Submit</button>
+    <button type="button" (click)="saveOrUpdate()" class="btn btn-dark btn-save">Submit<img src="../../assets/death_star.png"></button>
     </div>
   </div>
 </form>
