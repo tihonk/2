@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
     };
     this.apiService.login(loginPayload).subscribe(data => {
       if (data) {
-        window.localStorage.setItem('token', data.result);
-        debugger;
+        window.localStorage.setItem('token', data.token);
         this.router.navigate(['list-user']);
       } else {
         this.invalidLogin = true;

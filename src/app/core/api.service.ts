@@ -8,29 +8,28 @@ import {ResponseEntity} from '../model/api.response';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8080/signup';
 
   login(loginPayload): Observable<ResponseEntity> {
     return this.http.post<ResponseEntity>('http://localhost:8080/' + 'token/generate-token', loginPayload);
   }
 
   getUsers(): Observable<ResponseEntity> {
-    return this.http.get<ResponseEntity>(this.baseUrl);
+    return this.http.get<ResponseEntity>('http://localhost:8080/users');
   }
 
   getUserById(id: number): Observable<ResponseEntity> {
-    return this.http.get<ResponseEntity>(this.baseUrl + id);
+    return this.http.get<ResponseEntity>('http://localhost:8080/' + id);
   }
 
   createUser(user: UserModel): Observable<ResponseEntity> {
-    return this.http.post<ResponseEntity>(this.baseUrl, user);
+    return this.http.post<ResponseEntity>('http://localhost:8080/signup', user);
   }
 
   updateUser(user: UserModel): Observable<ResponseEntity> {
-    return this.http.put<ResponseEntity>(this.baseUrl + user.id, user);
+    return this.http.put<ResponseEntity>('http://localhost:8080/' + user.id, user);
   }
 
   deleteUser(id: number): Observable<ResponseEntity> {
-    return this.http.delete<ResponseEntity>(this.baseUrl + id);
+    return this.http.delete<ResponseEntity>('http://localhost:8080/' + id);
   }
 }
