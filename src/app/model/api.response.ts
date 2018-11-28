@@ -1,4 +1,4 @@
-export class ApiResponse {
+export class ResponseEntity {
 
   status: number;
   message: number;

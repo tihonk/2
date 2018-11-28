@@ -1,11 +1,5 @@
-import {ParentEntity} from './parentEntity.model';
-export class UserModel extends ParentEntity {
-  public firstName: string;
-  public secondName: string;
-  public firstSurname: string;
-  public secondSurname: string;
-  public phone: string;
-  public adress: string;
+
+export class UserModel {
   public tag: string;
   public content: string;
   id: number;

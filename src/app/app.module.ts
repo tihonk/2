@@ -3,32 +3,32 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import {RouterModule} from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { CreateUserComponent } from './create-user/create-user.component';
 import {FormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NoteComponent } from './note/note.component';
-import { NotesComponent } from './note/notes/notes.component';
-import { AddNoteComponent } from './add-note/add-note.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import {ApiService} from './core/api.service';
 import {TokenInterceptor} from './core/interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddUserComponent } from './add-user/add-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { ListUserComponent } from './list-user/list-user.component';
+import { LoginComponent } from './login/login.component';
+import {AddNoteComponent} from './add-note/add-note.component';
+import {NotesComponent} from './notes/notes.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    CreateUserComponent,
     NavbarComponent,
-    NoteComponent,
-    NotesComponent,
+    AddUserComponent,
+    EditUserComponent,
+    ListUserComponent,
+    LoginComponent,
     AddNoteComponent,
-    SignInComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
