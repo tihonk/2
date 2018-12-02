@@ -1,4 +1,4 @@
-
+<div  *ngIf="invalidLogin" class="alert alert-danger">Invalid size exception!</div>
 <div class="card gedf-card lol">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -20,7 +20,6 @@
         <div class="form-group">
           <input type="number" formControlName="number" placeholder="Number of Speciality" name="number" class="form-control" id="number">
         </div>
-
 
         <div class="form-group">
             <input formControlName="tag" placeholder="Tags" name="tag" class="form-control" id="tag">

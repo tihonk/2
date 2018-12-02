@@ -7,6 +7,7 @@ import {ListUserComponent} from './list-user/list-user.component';
 import {LoginComponent} from './login/login.component';
 import {AddNoteComponent} from './add-note/add-note.component';
 import {NotesComponent} from './notes/notes.component';
+import {NotesIdComponent} from './notes/notes-id/notes-id.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'add-user', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'list-user', component: ListUserComponent },
   { path: 'notes', component: NotesComponent },
+  { path: 'notes/:{{notes.id2}}', component: NotesIdComponent }
 ];
 
 @NgModule({

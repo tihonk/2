@@ -33,13 +33,13 @@
         <div class="card bg-dark text-white example2" *ngFor="let notes of notes">
          <img class="card-img-top example_beauty" src="../../assets/origi.jpg" alt="Card image cap">
           <span><h4>{{notes.tag}}</h4></span>
-          <div class="card-body ">
-            <h5 class="ok2">Number of speciality: </h5> {{notes.number}}
-            <h5 class="ok2">Description: </h5>{{notes.description}}
+            <div class="card-body ">
+               <h5 class="ok2">Number of speciality: </h5> {{notes.number}}
+               <h5 class="ok2">Description: </h5>{{notes.description}}
 
             <div class="ass li" >
               <small class="text-muted">This note was written by {{notes.username2}}</small>
-              <button class="btn lol2"> Show more </button>
+              <button routerLink="/notes/{{notes.id2}}" class="btn lol2"> Show more </button>
               <button class="btn lol3" (click)="deleteNotes(notes)"> Delete</button>
               <div>
           </div>

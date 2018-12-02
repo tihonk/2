@@ -16,6 +16,7 @@ import { ListUserComponent } from './list-user/list-user.component';
 import { LoginComponent } from './login/login.component';
 import {AddNoteComponent} from './add-note/add-note.component';
 import { NotesComponent } from './notes/notes.component';
+import { NotesIdComponent } from './notes/notes-id/notes-id.component';
 
 
 
@@ -28,7 +29,8 @@ import { NotesComponent } from './notes/notes.component';
     ListUserComponent,
     LoginComponent,
     AddNoteComponent,
-    NotesComponent
+    NotesComponent,
+    NotesIdComponent
   ],
   imports: [
     BrowserModule,

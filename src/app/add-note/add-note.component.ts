@@ -33,10 +33,13 @@ export class AddNoteComponent implements OnInit {
 }
 
   onSubmit() {
-    this.apiService.createNotes(this.addForm2.value)
-      .subscribe( data => {
-        this.router.navigate(['notes']);
-      });
+      this.apiService.createNotes(this.addForm2.value)
+        .subscribe(data => {
+          this.router.navigate(['notes']);
+        },
+          e => {
+            this.invalidLogin = true;
+          });
   }
 
 }

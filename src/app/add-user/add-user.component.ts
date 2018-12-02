@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../core/api.service';
+import {ResponseEntity} from '../model/api.response';
 
 @Component({
   selector: 'app-add-user',
@@ -9,6 +10,8 @@ import {ApiService} from '../core/api.service';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
+
+  invalidLogin: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
@@ -28,10 +31,16 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.apiService.createUser(this.addForm.value)
-      .subscribe( data => {
-        this.router.navigate(['list-user']);
-      });
+    this.apiService.getOne(this.addForm.controls.username.value).subscribe( data5 => {
+      if (data5 !== null) {
+        this.invalidLogin = true;
+      } else {
+        this.apiService.createUser(this.addForm.value)
+          .subscribe( data => {
+            this.router.navigate(['login']);
+          });
+      }
+    });
   }
 
 }

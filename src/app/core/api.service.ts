@@ -53,4 +53,7 @@ export class ApiService {
   deleteNotes(id2: number): Observable<ResponseEntity> {
     return this.http.delete<ResponseEntity>('http://localhost:8080/notes/' + id2);
   }
+  getNotesById(id2: number): Observable<ResponseEntity> {
+    return this.http.get<ResponseEntity>('http://localhost:8080/notes/' + id2);
+  }
 }
