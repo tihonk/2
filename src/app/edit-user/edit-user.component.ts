@@ -17,10 +17,10 @@ export class EditUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    let userId = window.localStorage.getItem('editUserId');
+    let userId = window.localStorage.getItem('usersData');
     if (!userId) {
-      alert('Invalid action.');
-      this.router.navigate(['list-user']);
+      alert('Please aurorised yourself!');
+      this.router.navigate(['notes']);
       return;
     }
     this.editForm = this.formBuilder.group({
@@ -50,7 +50,7 @@ export class EditUserComponent implements OnInit {
           }
         },
         error => {
-          alert(error);
+          alert('error');
         });
   }
 

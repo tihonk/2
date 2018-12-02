@@ -2,6 +2,7 @@ import { Component, OnInit , Inject} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserModel} from '../model/user.model';
 import {ApiService} from '../core/api.service';
+import {ResponseEntity} from '../model/api.response';
 
 @Component({
   selector: 'app-list-user',
@@ -10,7 +11,7 @@ import {ApiService} from '../core/api.service';
 })
 export class ListUserComponent implements OnInit {
 
-  users: UserModel[];
+  users: ResponseEntity;
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -21,18 +22,18 @@ export class ListUserComponent implements OnInit {
     }
     this.apiService.getUsers()
       .subscribe( data => {
-        this.users = data.token;
+        this.users = data;
       });
   }
 
   deleteUser(user: UserModel): void {
     this.apiService.deleteUser(user.id)
       .subscribe( data => {
-        this.users = this.users.filter(u => u !== user);
       });
   }
 
   editUser(user: UserModel): void {
+    debugger;
     window.localStorage.removeItem('editUserId');
     window.localStorage.setItem('editUserId', user.id.toString());
     this.router.navigate(['edit-user']);

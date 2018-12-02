@@ -1,24 +1,58 @@
-<div class = "clear"></div>
-<h2 class="main-form">Add new Note</h2>
-<br><br>
-<form class="form-horizontal main-form ">
-  <div *ngIf="!isValid" class="alert alert-danger ">
-    <strong>Error!</strong> {{message}}
-  </div>  <div class="form-group">
-  <label class="control-label col-sm-2" for="tag"><span class="required">*</span>Tag</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" name="tag" id="tag" [(ngModel)]="notes.tag" placeholder="Enter your tag">
+
+<div class="card gedf-card lol">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
+          a new publication</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
+      </li>
+    </ul>
   </div>
+
+
+  <form [formGroup]="addForm2" (ngSubmit)="onSubmit()">
+  <div class="card-body">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+        <div class="form-group">
+          <input type="number" formControlName="number" placeholder="Number of Speciality" name="number" class="form-control" id="number">
+        </div>
+
+
+        <div class="form-group">
+            <input formControlName="tag" placeholder="Tags" name="tag" class="form-control" id="tag">
+          </div>
+
+        <div class="form-group">
+          <input formControlName="description" placeholder="Description" name="description" class="form-control" id="description">
+        </div>
+
+          <div class="form-group">
+            <label for="content" style="color: deepskyblue" ><h4>Note content</h4></label>
+             <textarea
+               formControlName="content" placeholder="Content" name="content" class="form-control" id="content"
+               rows="8">
+             </textarea>
+          </div>
+      </div>
+      <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+        <div class="form-group">
+          <div class="custom-file">
+            <input type="file" formControlName="tag" placeholder="Imagine" name="imagine" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Upload image</label>
+          </div>
+        </div>
+        <div class="py-4"></div>
+      </div>
+    </div>
+    <div class="btn-toolbar justify-content-between">
+      <div class="btn-group">
+        <button class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </div>
+  </form>
 </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="content"><span class="required">*</span>Note</label>
-    <div class="col-sm-10">
-      <textarea name="content" id="content" [(ngModel)]="notes.content" type="text" cols="80" rows="6" ></textarea>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="button" (click)="saveNotes()" class="btn btn-dark btn-save">Add</button>
-    </div>
-  </div>
-</form>

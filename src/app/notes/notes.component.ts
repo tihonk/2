@@ -1,31 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import {NotesService} from './notes.service';
-import {NotesModel} from '../model/notes.model';
-import {UserModel} from '../model/user.model';
+import {ResponseEntity} from '../model/api.response';
 import {Router} from '@angular/router';
+import {ApiService} from '../core/api.service';
+import {UserModel} from '../model/user.model';
+import {NotesModel} from '../model/notes.model';
 
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css'],
-  providers: [NotesService]
+  styleUrls: ['./notes.component.css']
 })
+
 export class NotesComponent implements OnInit {
-  private notes: Array<NotesModel>;
-  constructor(private notesService: NotesService, private router: Router) { }
+
+  notes: ResponseEntity;
+  us: ResponseEntity;
+  a: number;
+
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    this.loadNotes();
-  }
-  private loadNotes(): void {
-    this.notesService.getNotes().subscribe(res => {
-      this.notes = res;
+    this.apiService.getUserById(Number(window.localStorage.getItem('usersData'))).subscribe( data3 => {
+      this.us = data3;
+      window.localStorage.setItem('userName', data3.username);
     });
+    this.apiService.getNotes()
+      .subscribe( data => {
+        this.notes = data;
+      });
   }
-  public editNote(notes: UserModel): void {
-    sessionStorage.setItem('notes', JSON.stringify(notes));
+  deleteNotes(notes: NotesModel): void {
+    this.apiService.deleteNotes(notes.id2)
+      .subscribe( data => {
+      });
   }
-  public deleteNotes(notes: UserModel): void {
-    this.notesService.deleteNotes(notes);
+  addNotes(): void {
+    this.router.navigate(['add-notes']);
   }
 }
+

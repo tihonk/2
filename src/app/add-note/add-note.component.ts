@@ -1,45 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {OK} from '../model/httpstatus';
-import {AddNoteService} from './add-note.service';
-import {UserModel} from '../model/user.model';
+import {ApiService} from '../core/api.service';
 
 @Component({
   selector: 'app-add-note',
   templateUrl: './add-note.component.html',
-  styleUrls: ['./add-note.component.css'],
-  providers: [AddNoteService]
+  styleUrls: ['./add-note.component.css']
 })
 export class AddNoteComponent implements OnInit {
+  invalidLogin: boolean = false;
 
-  private notes: UserModel;
-  private isValid: boolean = true;
-  private message: string = '';
-  constructor(private addNoteService: AddNoteService, private router: Router) {
-    if (sessionStorage.getItem('notes')) {
-      this.notes = JSON.parse(sessionStorage.getItem('notes'));
-    } else {
-      this.notes = new UserModel();
-    }
-  }
+  constructor(private formBuilder: FormBuilder, private router: Router, private apiService: ApiService) { }
 
+  addForm2: FormGroup;
+
+  // noinspection JSAnnotator
   ngOnInit() {
-  }
-  public saveNotes(): void {
-    this.isValid = this.addNoteService.validate(this.notes);
-    if (this.isValid) {
-      this.addNoteService.saveNotes(this.notes).subscribe( res => {
-        if (res.responseCode == OK) {
-          this.router.navigate(['/note']);
-        } else {
-          this.message = res.message;
-          this.isValid = false;
-        }
-      });
-    } else {
-      this.message = 'Fields with * are required';
+    if (!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
     }
-    sessionStorage.clear();
-  }
+    // noinspection JSAnnotator
+      this.addForm2 = this.formBuilder.group({
+          id2: [],
+          username2: window.localStorage.getItem('userName'),
+          number: ['', Validators.required],
+          description: ['', Validators.required],
+          tag: ['', Validators.required],
+          content: ['', Validators.required]
+      });
 }
 
+  onSubmit() {
+    this.apiService.createNotes(this.addForm2.value)
+      .subscribe( data => {
+        this.router.navigate(['notes']);
+      });
+  }
+
+}

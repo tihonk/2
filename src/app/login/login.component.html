@@ -1,22 +1,40 @@
-<div class="row">
+<div class="col-md-7 user-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10">
 
-  <div class="col-md-6 login-container">
-    <h2 style="margin: auto">Login </h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">UserName:</label>
-        <input type="text" class="form-control" formControlName="username" id="username" autocomplete="off">
-        <div class="error" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">Username is required</div>
+<div class="card lol">
+  <div class="box">
+   <div class="page-container">
+     <div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+           <h1>Login</h1>
+        <div  *ngIf="invalidLogin" class="alert alert-danger">User is not found</div>
+           <input type="text" name="name" placeholder="Username" formControlName="username"  id="username" autocomplete="off">
+          <input type="password"  placeholder="Password" formControlName="password" id="pwd" autocomplete="off">
+           <button class="btn btn-success" [disabled]="loginForm.invalid">Enter the dark side<img src="../../assets/death_star.png"></button>
+      </form>
       </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" formControlName="password" id="pwd" autocomplete="off">
-        <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>
-      </div>
-      <button class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
-      <div *ngIf="invalidLogin" class="error">
-        <div>Invalid credentials.</div>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
+      </div>
+        <div class="col-sm-2">
+          <div class="card lol2">
+            <div class="box2">
+              <div class="page-container">
+                <font style="font-stretch: ultra-condensed" size="6" color="#faebd7" face="Arial">Login with:</font>
+                <br><br>
+                <p><a href="https://www.facebook.com/login"><img src="../../assets/facebook_256.png" alt="Пример"></a></p>
+                <br><br>
+                <p><a href="https://twitter.com/login"><img src="../../assets/twitter_256.png" alt="Пример"></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+

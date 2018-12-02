@@ -1,7 +1,9 @@
 export class ResponseEntity {
-
-  status: number;
+  name: any;
   message: number;
   result: any;
   token: any;
+  id: number;
+  username: string;
+
 }

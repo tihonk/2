@@ -15,7 +15,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { LoginComponent } from './login/login.component';
 import {AddNoteComponent} from './add-note/add-note.component';
-import {NotesComponent} from './notes/notes.component';
+import { NotesComponent } from './notes/notes.component';
 
 
 
